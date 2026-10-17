@@ -113,6 +113,9 @@ public class A_Variable {
         System.out.print("나이를 입력해 주세요. > ");
         int age = scanner.nextInt();
 
+        System.out.print("키를 입력해 주세요. > ");
+        double height = scanner.nextDouble();
+
             /*
     정해져 있는 서식에 맞춰서 그 서식에 맞는 값을 줄바꿈하지 않고 출력해 주는 메소드이다.
         서식 지정자
@@ -127,15 +130,15 @@ public class A_Variable {
             %.2f : 소수점 아래 2자리까지만 표시
         escape 문자
             원래의 의미를 벗어나는 문자들을 이스케이프 문자라고 한다.
-            \\t : 수평 탭
-            \\n : 줄 바꿈
-            \\r : 리턴
-            \\" : 큰 따옴표 출력
-            \\' : 작은 따옴표 출력
-            \\\\ : 역슬래쉬 출력
+            \t : 수평 탭
+            \n : 줄 바꿈
+            \r : 리턴
+            \" : 큰 따옴표 출력
+            \' : 작은 따옴표 출력
+            \\ : 역슬래쉬 출력
             \\u 16진수 : 16진수에 해당하는 유니코드
     */
-        System.out.printf("이름: %s, 나이: %d, 키: %f\n", name, age);
+        System.out.printf("이름: %s, 나이: %d, 키: %.2f\n", name, age, height);
     }
 
 }
