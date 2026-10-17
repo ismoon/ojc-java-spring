@@ -1,5 +1,7 @@
 package com.oraclejava.day1.practice;
 
+import java.util.Scanner;
+
 public class B_Operators {
     public void practice1() {
         // 산술 연산
@@ -47,5 +49,18 @@ public class B_Operators {
         System.out.println();
     }
 
+    public void practice3() {
+        int number;
+        boolean result;
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("임의의 정수를 입력해 주세요. > ");
+        number = scanner.nextInt();
+
+        // 1 <= number <= 100
+        // result = 1 <= number <= 100;
+        result = ((number >= 1) && (number <= 100));
+
+        System.out.printf("%d은(는) 1부터 100 사이의 값인가요? %b\n", number, result);
+    }
 }

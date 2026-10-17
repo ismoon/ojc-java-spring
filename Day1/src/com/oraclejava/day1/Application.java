@@ -15,6 +15,7 @@ package com.oraclejava.day1;
 // - java.lang 패키지의 클래스는 import 하지 않고 사용 가능하다.
 import com.oraclejava.day1.practice.A_Variable;
 import com.oraclejava.day1.practice.B_Operators;
+import com.oraclejava.day1.practice.C_Control;
 
 // 클래스 선언(정의)
 // 클래스 안에는 여러 개의 메소드를 가질 수 있고 메소드 안에 소스코드를 작성한다.
@@ -37,7 +38,13 @@ public class Application {
         B_Operators operators = new B_Operators();
 
         // operators.practice1();
-        operators.practice2();
+        // operators.practice2();
+        // operators.practice3();
+
+        // 3. 제어문
+        C_Control control = new C_Control();
+
+        control.practice1();
     }
 }
 
