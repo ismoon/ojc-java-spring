@@ -76,8 +76,5 @@ public class A_Array {
 
             System.out.println();
         }
-
-        
     }
-
 }
