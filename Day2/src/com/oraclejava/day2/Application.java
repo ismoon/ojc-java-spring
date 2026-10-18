@@ -7,6 +7,7 @@ public class Application {
         // 1. 배열
         A_Array array = new A_Array();
 
-        array.practice1();
+        // array.practice1();
+        array.practice2();
     }
 }
