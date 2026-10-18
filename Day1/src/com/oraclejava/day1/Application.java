@@ -44,7 +44,9 @@ public class Application {
         // 3. 제어문
         C_Control control = new C_Control();
 
-        control.practice1();
+        // control.practice1();
+        // control.practice2();
+        control.practice3();
     }
 }
 
