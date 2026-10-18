@@ -14,6 +14,7 @@ public class Application {
         // 2. 문자열
         B_String string = new B_String();
 
-        string.practice1();
+        // string.practice1();
+        string.practice2();
     }
 }
