@@ -87,17 +87,39 @@ public class C_Control {
         String str = "";
         Scanner scanner = new Scanner(System.in);
 
-        while(!str.equals("exit")) {
+        // System.out.println("홍길동");
+        // System.out.println(new String("홍길동"));
+        // System.out.println("홍길동" == new String("홍길동"));
+        // 문자열 리터럴이 동일하면 String 객체를 공유하도록 되어있다.
+        // System.out.println("홍길동" == "홍길동");
+        // 문자열을 비교할 때는 equals() 메소드를 사용해야 한다.
+        // System.out.println("홍길동".equals(new String("홍길동")));
+
+        // while(!str.equals("exit")) {
+        //     System.out.print("문자열을 입력해 주세요. > ");
+        //     str = scanner.nextLine();
+        //
+        //     System.out.println(str);
+        // }
+
+        do {
             System.out.print("문자열을 입력해 주세요. > ");
             str = scanner.nextLine();
 
             System.out.println(str);
-        }
+        } while (!str.equals("exit"));
+
+        System.out.println("프로그램을 종료합니다.");
     }
 
+    public void practice4() {
+        int sum  = 0;
+        int random = (int) ((Math.random() * 10) + 1);
 
+        for (int i = 1; i <= random ; i++) {
+            sum += i; // sum = sum + i
+        }
 
-
-
-
+        System.out.printf("1부터 %d까지의 합 : %d\n", random, sum);
+    }
 }
