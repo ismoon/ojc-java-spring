@@ -1,6 +1,7 @@
 package com.oraclejava.day3.practice;
 
 import com.oraclejava.day3.practice.inheritance.Animal;
+import com.oraclejava.day3.practice.inheritance.AnimalBehavior;
 import com.oraclejava.day3.practice.inheritance.Cat;
 import com.oraclejava.day3.practice.inheritance.Dog;
 
@@ -50,6 +51,15 @@ public class B_InheritanceAndPolymorphism {
     }
 
     public void practice3() {
+        // 인터페이스는 객체 생성이 불가능하다.
+        // AnimalBehavior behavior = new AnimalBehavior();
 
+        // 인터페이스는 참조 변수로 사용이 가능하다.
+        // 즉, 다형성을 적용해서 인터페이스를 구현하는 객체들을 참조할 수 있다.
+        AnimalBehavior behavior =
+                // new Dog("멍멍이", "진돗개", true);
+                new Cat("나비", "페르시안", false);
+
+        behavior.eat();
     }
 }

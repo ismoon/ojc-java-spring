@@ -32,6 +32,11 @@ public class Dog extends Animal {
         System.out.println("멍멍");
     }
 
+    @Override
+    public void eat() {
+        System.out.println("빠르게 먹는다.");
+    }
+
     // toString() 메소드는 객체를 문자열로 표현하는 메소드이다.
     @Override
     public String toString() {

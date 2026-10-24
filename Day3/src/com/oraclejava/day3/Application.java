@@ -15,6 +15,7 @@ public class Application {
                 new B_InheritanceAndPolymorphism();
 
         // inheritance.practice1();
-        inheritance.practice2();
+        // inheritance.practice2();
+        inheritance.practice3();
     }
 }
