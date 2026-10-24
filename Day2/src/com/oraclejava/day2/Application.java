@@ -21,6 +21,6 @@ public class Application {
         // 3. 클래스
         C_Object object = new C_Object();
 
-        object.practice();
+        // object.practice();
     }
 }
