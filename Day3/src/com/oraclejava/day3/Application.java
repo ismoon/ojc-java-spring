@@ -2,6 +2,7 @@ package com.oraclejava.day3;
 
 import com.oraclejava.day3.practice.A_Static;
 import com.oraclejava.day3.practice.B_InheritanceAndPolymorphism;
+import com.oraclejava.day3.practice.C_APIs;
 
 public class Application {
     public static void main(String[] args) {
@@ -16,6 +17,12 @@ public class Application {
 
         // inheritance.practice1();
         // inheritance.practice2();
-        inheritance.practice3();
+        // inheritance.practice3();
+
+        // 3. 기본 API
+        C_APIs apis = new C_APIs();
+
+        apis.practice1();
+
     }
 }
