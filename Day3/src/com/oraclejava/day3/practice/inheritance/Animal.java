@@ -1,6 +1,6 @@
 package com.oraclejava.day3.practice.inheritance;
 
-public class Animal extends Object {
+public abstract class Animal {
     // private 접근 제한자를 가지고 있으면 상속되지 않는다.
     // private String name;
     // protected 접근 제한자는 하위 클래스에서 상속이 가능하다.
@@ -18,9 +18,11 @@ public class Animal extends Object {
         this.kinds = kinds;
     }
 
-    public void makeSound() {
-        System.out.println("소리를 낸다.");
-    }
+    // public void makeSound() {
+    //     System.out.println("소리를 낸다.");
+    // }
+
+    public abstract void makeSound();
 
     public String getName() {
         return name;
