@@ -1,6 +1,6 @@
 package com.oraclejava.day3.practice;
 
-import com.oraclejava.day3.staticmember.Counter;
+import com.oraclejava.day3.practice.staticmember.Counter;
 
 public class A_Static {
     public void practice() {

@@ -1,4 +1,4 @@
-package com.oraclejava.day3.staticmember;
+package com.oraclejava.day3.practice.staticmember;
 
 public class Counter {
     // 정적 필드
