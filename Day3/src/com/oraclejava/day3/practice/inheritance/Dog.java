@@ -19,6 +19,14 @@ public class Dog extends Animal {
         this.isTrained = isTrained;
     }
 
+    public boolean isTrained() {
+        return isTrained;
+    }
+
+    public void setTrained(boolean trained) {
+        isTrained = trained;
+    }
+
     @Override
     public void makeSound() {
         System.out.println("멍멍");
