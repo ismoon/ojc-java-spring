@@ -37,6 +37,16 @@ public class Dog extends Animal {
         System.out.println("빠르게 먹는다.");
     }
 
+    @Override
+    public void run() {
+        System.out.println("빠르게 달린다.");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("허우적 헤엄친다.");
+    }
+
     // toString() 메소드는 객체를 문자열로 표현하는 메소드이다.
     @Override
     public String toString() {

@@ -1,6 +1,7 @@
 package com.oraclejava.day3.practice.inheritance;
 
-public abstract class Animal implements AnimalBehavior {
+public abstract class Animal
+        implements AnimalBehavior, Runnable, Swimmable {
     // private 접근 제한자를 가지고 있으면 상속되지 않는다.
     // private String name;
     // protected 접근 제한자는 하위 클래스에서 상속이 가능하다.

@@ -30,6 +30,16 @@ public class Cat extends Animal {
     }
 
     @Override
+    public void run() {
+        System.out.println("우아하게 달린다.");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("헤엄치지 못한다.");
+    }
+
+    @Override
     public String toString() {
         return "Cat{" +
                 "name='" + name + '\'' +
