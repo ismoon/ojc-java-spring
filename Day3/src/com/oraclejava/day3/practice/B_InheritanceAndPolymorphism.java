@@ -12,7 +12,7 @@ public class B_InheritanceAndPolymorphism {
         dog.makeSound();
         System.out.println();
 
-        Cat cat = new Cat();
+        Cat cat = new Cat("야옹이", "페르시안", true);
 
         System.out.println(cat);
         cat.makeSound();
