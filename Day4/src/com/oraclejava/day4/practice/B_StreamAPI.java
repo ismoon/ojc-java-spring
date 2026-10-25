@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -75,6 +77,28 @@ public class B_StreamAPI {
 
         // System.out.println(optionalDouble.getAsDouble());
         System.out.println(optionalDouble.orElse(0.0));
+        System.out.println();
+    }
+
+    public void practice3() {
+        List<String> names =
+                Arrays.asList("홍길동", "김철수", "김영희", "홍길동", "이몽룡");
+
+        List<String> uniqueNames = names.stream()
+                                        .distinct()
+                                        // .collect(Collectors.toList());
+                                        .toList();
+
+        System.out.println(names);
+        System.out.println(uniqueNames);
+        System.out.println();
+
+        Set<String> selectedNames = names.stream()
+                        .filter(name -> name.startsWith("김"))
+                        .collect(Collectors.toSet());
+
+        System.out.println(names);
+        System.out.println(selectedNames);
         System.out.println();
     }
 }
