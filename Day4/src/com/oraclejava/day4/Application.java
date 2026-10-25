@@ -2,6 +2,7 @@ package com.oraclejava.day4;
 
 import com.oraclejava.day4.practice.A_Collection;
 import com.oraclejava.day4.practice.B_StreamAPI;
+import com.oraclejava.day4.practice.C_Exception;
 
 public class Application {
     public static void main(String[] args) {
@@ -17,6 +18,11 @@ public class Application {
 
         // streamAPI.practice1();
         // streamAPI.practice2();
-        streamAPI.practice3();
+        // streamAPI.practice3();
+
+        // 3. 예외 처리
+        C_Exception exception = new C_Exception();
+
+        exception.practice1();
     }
 }
