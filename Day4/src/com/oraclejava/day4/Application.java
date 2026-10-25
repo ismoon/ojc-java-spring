@@ -4,8 +4,10 @@ import com.oraclejava.day4.practice.A_Collection;
 import com.oraclejava.day4.practice.B_StreamAPI;
 import com.oraclejava.day4.practice.C_Exception;
 
+import java.io.IOException;
+
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         // 1. 컬렉션 프레임워크
         A_Collection collection = new A_Collection();
 
@@ -23,6 +25,7 @@ public class Application {
         // 3. 예외 처리
         C_Exception exception = new C_Exception();
 
-        exception.practice1();
+        // exception.practice1();
+        exception.practice2();
     }
 }
