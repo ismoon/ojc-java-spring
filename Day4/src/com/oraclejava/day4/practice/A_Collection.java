@@ -139,10 +139,9 @@ public class A_Collection {
         Set<Map.Entry<String, String>> entrySet = map.entrySet();
 
         for (Map.Entry<String, String> entry : entrySet) {
-            System.out.printf(
-                    "key: %s, value: %s\n", entry.getKey(), entry.getValue());
+            System.out.printf("key: %s, value: %s\n", entry.getKey(), entry.getValue());
         }
 
-
+        System.out.println();
     }
 }
