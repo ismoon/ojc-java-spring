@@ -24,7 +24,5 @@ public class B_StreamAPI {
                 // .filter((String name) -> { return name.startsWith("김"); })
                 .filter(name -> name.startsWith("김"))
                 .forEach(name -> System.out.println(name));
-
-
     }
 }
