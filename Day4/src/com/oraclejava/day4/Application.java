@@ -7,6 +7,8 @@ public class Application {
         // 1. 컬렉션 프레임워크
         A_Collection collection = new A_Collection();
 
-        collection.practice1();
+        // collection.practice1();
+        // collection.practice2();
+        collection.practice3();
     }
 }
