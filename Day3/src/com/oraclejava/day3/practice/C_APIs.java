@@ -1,6 +1,7 @@
 package com.oraclejava.day3.practice;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class C_APIs {
     public void practice1() {
@@ -76,14 +77,30 @@ public class C_APIs {
 
         // 3. 날짜와 시간을 조작하는 메소드
         // LocalDateTime plusDays = now.plusDays(1);
-        LocalDateTime plusDays =
-                now.plusDays(1).plusMonths(1).plusYears(1);
+        LocalDateTime plusDays = now.plusDays(1).plusMonths(1).plusYears(1);
+        LocalDateTime minusMonths = now.minusMonths(2);
 
+        System.out.println(now);
         System.out.println(plusDays);
+        System.out.println(minusMonths);
         System.out.println();
 
+        // 4. 날짜와 시간을 비교하는 메소드
+        System.out.println(now.isAfter(plusDays));
+        System.out.println(now.isBefore(plusDays));
+        System.out.println(now.isAfter(minusMonths));
+        System.out.println(now.isBefore(minusMonths));
+        System.out.println(now.isEqual(minusMonths));
+        System.out.println();
 
+        // 5. DateTimeFormatter 클래스 사용
+        DateTimeFormatter formatter =
+                DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 hh시 mm분 ss초");
 
-
+        System.out.println(now);
+        System.out.println(now.format(formatter));
+        System.out.println(now.format(DateTimeFormatter.ISO_ORDINAL_DATE));
+        System.out.println(now.format(DateTimeFormatter.ISO_WEEK_DATE));
+        System.out.println();
     }
 }
