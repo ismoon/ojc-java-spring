@@ -15,6 +15,7 @@ public class Application {
         // 2. StreamAPI
         B_StreamAPI streamAPI = new B_StreamAPI();
 
-        streamAPI.practice1();
+        // streamAPI.practice1();
+        streamAPI.practice2();
     }
 }
