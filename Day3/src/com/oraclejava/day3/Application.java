@@ -22,7 +22,8 @@ public class Application {
         // 3. 기본 API
         C_APIs apis = new C_APIs();
 
-        apis.practice1();
+        // apis.practice1();
+        apis.practice2();
 
     }
 }

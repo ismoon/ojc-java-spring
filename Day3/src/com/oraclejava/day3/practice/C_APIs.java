@@ -1,5 +1,7 @@
 package com.oraclejava.day3.practice;
 
+import java.time.LocalDateTime;
+
 public class C_APIs {
     public void practice1() {
         // 1. Boxing(기본 타입 -> Wrapper 타입)
@@ -46,5 +48,42 @@ public class C_APIs {
         System.out.println(dNumber2);
         System.out.println(dNumber1 == dNumber2);
         System.out.println();
+    }
+
+    public void practice2() {
+        // 1. LocalDateTime 객체 생성
+        LocalDateTime now = LocalDateTime.now();
+        // LocalDateTime when = LocalDateTime.of(2026, 10, 25, 12, 30, 25);
+        LocalDateTime when =
+                LocalDateTime.parse("2026-10-25T10:05:02.368395");
+
+        System.out.println(now);
+        System.out.println(when);
+        System.out.println();
+
+        // 2. 날짜와 시간 정보를 출력하는 메소드
+        System.out.println(now.getYear());
+        System.out.println(now.getMonth());
+        System.out.println(now.getMonthValue());
+        System.out.println(now.getDayOfMonth());
+        System.out.println(now.getDayOfWeek());
+        System.out.println(now.getDayOfYear());
+        System.out.println(now.getHour());
+        System.out.println(now.getMinute());
+        System.out.println(now.getSecond());
+        System.out.println(now.getNano());
+        System.out.println();
+
+        // 3. 날짜와 시간을 조작하는 메소드
+        // LocalDateTime plusDays = now.plusDays(1);
+        LocalDateTime plusDays =
+                now.plusDays(1).plusMonths(1).plusYears(1);
+
+        System.out.println(plusDays);
+        System.out.println();
+
+
+
+
     }
 }
