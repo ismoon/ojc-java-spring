@@ -147,7 +147,8 @@ public class UserDao {
         int result = 0;
         Connection connection = null;
         PreparedStatement pstmt = null;
-        String query = "UPDATE user SET nickname = ?, email = ? WHERE no = ?";
+        String query = "UPDATE user " +
+                "SET nickname = ?, email = ? WHERE no = ?";
 
         try {
             Class.forName("org.mariadb.jdbc.Driver");

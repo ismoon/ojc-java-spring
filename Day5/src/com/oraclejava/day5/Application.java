@@ -22,6 +22,8 @@ public class Application {
         C_JDBC jdbc = new C_JDBC();
 
         // jdbc.practice1();
-        jdbc.practice2();
+        // jdbc.practice2();
+        // jdbc.practice3();
+        jdbc.practice4();
     }
 }
