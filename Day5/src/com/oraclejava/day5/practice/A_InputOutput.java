@@ -28,7 +28,7 @@ public class A_InputOutput {
     }
 
     public void practice2() {
-        // fileSave();
+        fileSave();
         fileRead();
     }
 
@@ -83,7 +83,5 @@ public class A_InputOutput {
                 throw new RuntimeException(e);
             }
         }
-
-
     }
 }
