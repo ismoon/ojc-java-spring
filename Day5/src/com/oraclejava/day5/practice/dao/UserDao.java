@@ -62,7 +62,7 @@ public class UserDao {
         return users;
     }
 
-    public User findById(int no) {
+    public User findByNo(int no) {
         User user = null;
         Connection connection = null;
         PreparedStatement pstmt = null;
