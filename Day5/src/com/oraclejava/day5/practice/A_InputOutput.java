@@ -1,0 +1,27 @@
+package com.oraclejava.day5.practice;
+
+import java.io.File;
+import java.io.IOException;
+
+public class A_InputOutput {
+    public void practice1() {
+        try {
+            File file = new File("test.txt");
+
+            System.out.println(file.getName());
+            System.out.println(file.getAbsolutePath());
+            System.out.println(file.length());
+            System.out.println(file.isFile());
+            System.out.println(file.isDirectory());
+
+            // 파일 존재 여부 확인
+            if (file.exists()) {
+                file.delete(); // 파일 삭제
+            } else {
+                file.createNewFile(); // 파일 생성
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
