@@ -2,6 +2,7 @@ package com.oraclejava.day5;
 
 import com.oraclejava.day5.practice.A_InputOutput;
 import com.oraclejava.day5.practice.B_AssistStream;
+import com.oraclejava.day5.practice.C_JDBC;
 
 public class Application {
     public static void main(String[] args) {
@@ -15,6 +16,11 @@ public class Application {
         B_AssistStream assistStream = new B_AssistStream();
 
         // assistStream.practice1();
-        assistStream.practice2();
+        // assistStream.practice2();
+
+        // 3. JDBC(Java DataBase Connectivity)
+        C_JDBC jdbc = new C_JDBC();
+
+        jdbc.practice1();
     }
 }
