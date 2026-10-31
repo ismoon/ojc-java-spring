@@ -17,5 +17,25 @@ public class C_JDBC {
         }
 
         System.out.println();
+
+        User user = dao.findByNo(3);
+
+        System.out.println(user);
+        System.out.println();
+    }
+
+    public void practice2() {
+        UserDao dao = new UserDao();
+        User insertUser = new User();
+
+        insertUser.setUsername("kim123");
+        insertUser.setPassword("1234");
+        insertUser.setNickname("김신");
+        insertUser.setEmail("john@example.com");
+
+        int result = dao.insert(insertUser);
+
+        System.out.println("Result : " + result);
+        System.out.println();
     }
 }
