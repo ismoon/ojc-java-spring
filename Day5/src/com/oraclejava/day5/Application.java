@@ -7,6 +7,7 @@ public class Application {
         // 1. IO
         A_InputOutput inputOutput = new A_InputOutput();
 
-        inputOutput.practice1();
+        // inputOutput.practice1();
+        inputOutput.practice2();
     }
 }
