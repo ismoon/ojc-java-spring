@@ -4,6 +4,7 @@ import com.oraclejava.day5.practice.vo.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -48,8 +49,62 @@ public class UserDao {
             throw new RuntimeException(e);
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } finally {
+            try {
+                resultSet.close();
+                statement.close();
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         return users;
+    }
+
+    public User findById(int no) {
+        User user = null;
+        Connection connection = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String query = "SELECT * FROM user WHERE no = ?";
+
+        try {
+            Class.forName("org.mariadb.jdbc.Driver");
+
+            connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/web", "oraclejava", "oraclejava");
+            pstmt = connection.prepareStatement(query);
+
+            pstmt.setInt(1, no);
+
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                user = new User();
+
+                user.setNo(rs.getInt("no"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setNickname(rs.getString("nickname"));
+                user.setEmail(rs.getString("email"));
+                user.setStatus(rs.getString("status"));
+                user.setCreatedAt(rs.getDate("created_at"));
+                user.setUpdatedAt(rs.getDate("updated_at"));
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                pstmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return user;
     }
 }

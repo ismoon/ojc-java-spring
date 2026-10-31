@@ -12,7 +12,10 @@ public class C_JDBC {
 
         List<User> users = dao.findAll();
 
-        System.out.println(users);
+        for (User user : users) {
+            System.out.println(user);
+        }
+
         System.out.println();
     }
 }
