@@ -14,6 +14,7 @@ public class Application {
         // 2. 보조 스트림
         B_AssistStream assistStream = new B_AssistStream();
 
-        assistStream.practice1();
+        // assistStream.practice1();
+        assistStream.practice2();
     }
 }

@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class B_AssistStream {
     public void practice1() {
@@ -25,7 +27,6 @@ public class B_AssistStream {
         }
     }
 
-
     private void fileRead() {
         try (BufferedReader br = new BufferedReader(new FileReader("b_buffer.txt"))) {
 
@@ -42,9 +43,37 @@ public class B_AssistStream {
         }
     }
 
+    public void practice2() {
+        // keyBoardInput();
+        consoleOutput();
+    }
 
+    private void keyBoardInput() {
+        try {
+            BufferedReader br =
+                    new BufferedReader(new InputStreamReader(System.in));
 
+            System.out.print("문자열 입력 > ");
+            String line = br.readLine();
 
+            System.out.println(line);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    private void consoleOutput() {
+        try {
+            BufferedWriter bw =
+                    new BufferedWriter(new OutputStreamWriter(System.out));
 
+            bw.write("안녕하세요.");
+            bw.newLine();
+            bw.write("만나서 반갑습니다.");
+            bw.newLine();
+            bw.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
