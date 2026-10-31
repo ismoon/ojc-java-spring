@@ -38,4 +38,28 @@ public class C_JDBC {
         System.out.println("Result : " + result);
         System.out.println();
     }
+
+    public void practice3() {
+        UserDao dao = new UserDao();
+        User updateUser = new User();
+
+        updateUser.setNo(5);
+        updateUser.setUsername("kim123");
+        updateUser.setPassword("5678");
+        updateUser.setNickname("김신형");
+        updateUser.setEmail("kim123@gmail.com");
+
+        int result = dao.update(updateUser);
+
+        System.out.println("Result : " + result);
+        System.out.println();
+    }
+
+    public void practice4() {
+        UserDao dao = new UserDao();
+        int result = dao.delete(5);
+
+        System.out.println("Result : " + result);
+        System.out.println();
+    }
 }

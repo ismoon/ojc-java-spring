@@ -21,6 +21,7 @@ public class Application {
         // 3. JDBC(Java DataBase Connectivity)
         C_JDBC jdbc = new C_JDBC();
 
-        jdbc.practice1();
+        // jdbc.practice1();
+        jdbc.practice2();
     }
 }

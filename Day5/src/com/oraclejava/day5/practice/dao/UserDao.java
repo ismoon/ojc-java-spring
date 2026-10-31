@@ -143,4 +143,69 @@ public class UserDao {
         return result;
     }
 
+    public int update(User user) {
+        int result = 0;
+        Connection connection = null;
+        PreparedStatement pstmt = null;
+        String query = "UPDATE user SET nickname = ?, email = ? WHERE no = ?";
+
+        try {
+            Class.forName("org.mariadb.jdbc.Driver");
+
+            connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/web", "oraclejava", "oraclejava");
+            pstmt = connection.prepareStatement(query);
+
+            pstmt.setString(1, user.getNickname());
+            pstmt.setString(2, user.getEmail());
+            pstmt.setInt(3, user.getNo());
+
+            result = pstmt.executeUpdate();
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                pstmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return result;
+    }
+
+    public int delete(int no) {
+        int result = 0;
+        Connection connection = null;
+        PreparedStatement pstmt = null;
+        String query = "DELETE FROM user WHERE no = ?";
+
+        try {
+            Class.forName("org.mariadb.jdbc.Driver");
+
+            connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/web", "oraclejava", "oraclejava");
+            pstmt = connection.prepareStatement(query);
+
+            pstmt.setInt(1, no);
+
+            result = pstmt.executeUpdate();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                pstmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return result;
+    }
+
 }
