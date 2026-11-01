@@ -6,8 +6,11 @@
     <title>JSP 요소 (Elements)</title>
 </head>
 <body>
+    <%@ include file="/views/common/header.jsp"%>
+
     <main>
         <h2>JSP 요소 (Elements)</h2>
+
         <!-- HTML 주석 -->
         <%-- JSP 주석 --%>
 
@@ -42,5 +45,7 @@
         <br>
         1부터 5까지의 합은 <%= sum %>입니다.
 </main>
+
+    <%@ include file="../common/footer.jsp"%>
 </body>
 </html>
