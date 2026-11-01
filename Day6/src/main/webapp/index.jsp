@@ -58,6 +58,15 @@
 
     <a href="/day6/views/elements">View Details</a>
 
+    <h3>3.2. JSP 내장 객체</h3>
+    <p>
+      JSP가 서블릿으로 변환될 때 자바 파일에 자동으로 추가되는 객체들을 내장 객체라고 한다.
+      <br>
+      즉, JSP 페이지 내부에서 개발자가 직접 선언하지 않고 바로 사용이 가능한 객체이다.
+    </p>
+
+    <a href="/day6/views/objects">View Details</a>
+
 
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
