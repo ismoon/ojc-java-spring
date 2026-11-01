@@ -76,6 +76,37 @@
         }
     %>
 
+    <h2>5. 객체 영역(Scope)</h2>
+    <p>
+        JSP에서 제공하는 내장 객체들 중에 pageContext, request, session, application 객체는 해당 객체에 정의된 유효한 범위를 갖는다.
+        해당 객체들은 유효한 범위 안에서 필요한 데이터를 서로 공유할 수 있는데 이 공유되는 데이터를 속성(Attribute)라고 한다.
+        속성을 공유할 수 있는 유효 범위를 영역(Scope)라 한다.
+    </p>
+
+    <h3>1) Session 영역과 Application 영역의 비교</h3>
+    <%
+        session.setAttribute("address", "서울특별시");
+        application.setAttribute("name", "홍길동");
+
+        System.out.println(session.getAttribute("address"));
+        System.out.println(application.getAttribute("name"));
+    %>
+
+    <a href="scopeTest1.jsp">View Details</a>
+
+    <h3>2) Page 영역과 Request 영역의 비교</h3>
+    <%
+        pageContext.setAttribute("age", 23);
+        request.setAttribute("gender", "남자");
+
+        System.out.println(pageContext.getAttribute("age"));
+        System.out.println(request.getAttribute("gender"));
+    %>
+
+    <a href="scopeTest2.jsp">View Details</a>
+
+
+
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
