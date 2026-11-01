@@ -16,7 +16,7 @@ public class FirstServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 1. 한글이 깨지는 것을 방지하기 위해서 응답 헤더를 설정한다.
-        response.setContentType("text/html;charset=utf8");
+        response.setContentType("text/html;charset=utf-8");
 
         // 2. 응답 화면을 출력하기 위한 출력 스트림을 얻어온다.
         PrintWriter out = response.getWriter();
