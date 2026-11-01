@@ -46,6 +46,18 @@
       <input type="reset" value="취소">
     </form>
 
+    <h2>3. JSP (Java Server Page)</h2>
+    <p>
+      JSP는 HTML 코드 안에서 스크립트 형태로 자바 언어를 사용하여 동적인 페이지를 생성한다.
+    </p>
+
+    <h3>3.1. JSP 요소(Elements)</h3>
+    <p>
+      JSP 페이지에서 자바 코드를 직접 기술할 수 있게 해주는 요소들이다.
+    </p>
+
+    <a href="/day6/views/elements">View Details</a>
+
 
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
