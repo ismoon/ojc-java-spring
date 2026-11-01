@@ -11,5 +11,19 @@
         리다이렉트는 지정한 경로로 클라이언트에게 다시 요청하도록 응답한다.
     </p>
     <a href="redirect.jsp">View Details</a>
+
+    <h2>2. 포워드(Forward)</h2>
+    <p>
+        포워드는 지정한 경로로 서버 내부에서 요청을 전달한다.
+    </p>
+    <a href="forward.jsp">View Details</a>
+
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
 </body>
 </html>
