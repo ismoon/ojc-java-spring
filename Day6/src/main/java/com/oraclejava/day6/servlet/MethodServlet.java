@@ -23,7 +23,7 @@ public class MethodServlet extends HttpServlet {
         System.out.println(gender);
 
         // 응답 화면 출력
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=utf-8");
 
         PrintWriter out = response.getWriter();
 
@@ -41,7 +41,7 @@ public class MethodServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 }

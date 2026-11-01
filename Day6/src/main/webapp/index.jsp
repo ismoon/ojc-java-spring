@@ -22,7 +22,8 @@
       2) POST 방식은 데이터를 요청 Body에 담아서 요청하는 방식으로 보안 유지가 가능하다.
     </p>
 
-    <form action="/day6/method.do" method="get">
+    <%-- <form action="/day6/method.do" method="get"> --%>
+    <form action="/day6/method.do" method="post">
       <label for="name">이름 : </label>
       <input type="text" id="name" name="userName"/>
 
@@ -46,6 +47,12 @@
     </form>
 
 
-
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
   </body>
 </html>
