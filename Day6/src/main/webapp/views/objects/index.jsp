@@ -101,6 +101,8 @@
 
         System.out.println(pageContext.getAttribute("age"));
         System.out.println(request.getAttribute("gender"));
+
+        pageContext.forward("scopeTest2.jsp");
     %>
 
     <a href="scopeTest2.jsp">View Details</a>
