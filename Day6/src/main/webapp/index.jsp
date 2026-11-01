@@ -14,5 +14,38 @@
     <a href="https://www.naver.com">네이버로</a>
     <br>
     <a href="http://localhost:8080/day6/first.do">View Details</a>
+
+    <h2>2. HTTP 요청 방식</h2>
+    <p>
+      1) GET 방식은 URL에 데이터를 포함시켜 요청하는 방식으로 보안 유지가 불가능하다.
+      <br>
+      2) POST 방식은 데이터를 요청 Body에 담아서 요청하는 방식으로 보안 유지가 가능하다.
+    </p>
+
+    <form action="/day4/method.do" method="get">
+      <label for="name">이름 : </label>
+      <input type="text" id="name" name="userName"/>
+
+      <br>
+
+      <label for="age">나이 : </label>
+      <input type="text" id="age" name="userAge"/>
+
+      <br>
+
+      <label>성별 : </label>
+      <input type="radio" name="gender" id="male" value="남자" checked>
+      <label for="male">남자</label>
+      <input type="radio" name="gender" id="female" value="여자">
+      <label for="female">여자</label>
+
+      <br><br>
+
+      <input type="submit" value="전송"/>
+      <input type="reset" value="취소">
+    </form>
+
+
+
   </body>
 </html>
