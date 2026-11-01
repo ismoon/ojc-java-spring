@@ -65,6 +65,10 @@
       즉, JSP 페이지 내부에서 개발자가 직접 선언하지 않고 바로 사용이 가능한 객체이다.
     </p>
 
+    userId: <%= session.getAttribute("userId") %>
+
+    <br>
+
     <a href="/day6/views/objects">View Details</a>
 
 

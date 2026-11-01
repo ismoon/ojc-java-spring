@@ -1,3 +1,4 @@
+<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
@@ -26,7 +27,7 @@
         <li>세션이란 서버 측의 컨테이너에서 관리되는 정보를 의미한다.</li>
         <li>세션은 클라이언트와 서버 간의 상태를 유지시켜주는 역할을 한다.</li>
         <li>세션의 정보는 클라이언트에서 접속해서 브라우저를 종료할 때까지 유지된다.</li>
-        <li>설명 : 세션은 하나의 브라우저와 서버간의 상태를 유지하기 위한 기술이다.</li>
+        <li>세션은 하나의 브라우저와 서버간의 상태를 유지하기 위한 기술이다.</li>
     </ol>
 
     <%
@@ -59,8 +60,7 @@
         cookie.setMaxAge(-1);
 
         // 3) 쿠키를 모든 경로에서 사용하도록 설정한다.
-        // 설명: /jsp로 시작하는 요청에만 쿠키가 포함된다.
-        cookie.setPath("/jsp");
+        cookie.setPath("/day6");
 
         // 4) 생성한 쿠키를 클라이언트로 전송하기 위해 HttpServletResponse 객체에 저장한다.
         response.addCookie(cookie);
