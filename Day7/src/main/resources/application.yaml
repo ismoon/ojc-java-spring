@@ -1,3 +1,8 @@
 spring:
   application:
     name: Day7
+pet:
+  cat:
+    name: 야옹이
+  dog:
+    name: 멍멍이

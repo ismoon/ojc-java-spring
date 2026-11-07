@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Primary
 @Component
 public class Dog extends Pet {
-    public Dog(@Value("멍멍이") String name) {
+    public Dog(@Value("${pet.dog.name}") String name) {
         super(name);
     }
 
