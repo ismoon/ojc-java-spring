@@ -78,6 +78,13 @@
 
     <a href="/day6/views/el">View Details</a>
 
+    <h2>5. JSTL(JSP Standard Tag Library)</h2>
+    <p>
+      JSP 페이지에서 자주 사용하는 코드들을 사용하기 쉽게 태그로 만들어서 제공한다.
+    </p>
+
+    <a href="<%= request.getContextPath() %>/views/jstl">View Details</a>
+
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
