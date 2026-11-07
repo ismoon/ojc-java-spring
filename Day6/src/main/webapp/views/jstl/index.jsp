@@ -1,4 +1,5 @@
-
+<%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
 
@@ -76,6 +77,21 @@
             num1과 num2는 같다.
         </c:otherwise>
     </c:choose>
+
+    <h2>5. forEach 액션 태그</h2>
+    <p>
+        자바의 for 구문에 해당하는 역할을 하는 액션 태그이다.
+    </p>
+
+    <h3>5.1. 자바의 for 구문처럼 사용하기</h3>
+    <c:forEach var="i" begin="1" end="5">
+        ${ i }<br>
+    </c:forEach>
+
+    <h3>5.2. 자바의 향상된 for 구문처럼 사용하기</h3>
+    <c:forEach var="color" items="${ colors }">
+        <h5 style="color: ${ color }">${ color }</h5>
+    </c:forEach>
 
     <br><br><br><br><br>
     <br><br><br><br><br>
