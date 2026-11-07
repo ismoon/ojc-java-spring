@@ -40,5 +40,38 @@
     강의장: ${ applicationScope.classRoom }
     <br>
     수강생: ${ applicationScope.student.name }, ${ applicationScope.student.age }
+
+    <h2>2. ContextPath 가져오기</h2>
+    ContextPath: <%= request.getContextPath() %>
+    <br>
+    ContextPath: ${ pageContext.request.contextPath }
+
+    <h2>3. 헤더에 접근하기</h2>
+    Host: <%= request.getHeader("Host") %>
+    <br>
+    User-Agent: <%= request.getHeader("User-Agent") %>
+
+    <br><br>
+
+    <%-- Host: ${ header.host } --%>
+    Host: ${ header['host'] }
+    <br>
+    User-Agent: ${ header['User-Agent'] }
+
+    <h2>4. 쿠키에 접근하기</h2>
+    JSESSIONID: <%= request.getCookies()[0].getValue() %>
+    <br><br>
+    JSESSIONID: ${ cookie.JSESSIONID.value }
+    <br>
+    JSESSIONID: ${ cookie['JSESSIONID'].value }
+    <br>
+    JSESSIONID: ${ cookie['JSESSIONID']['value'] }
+
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
 </body>
 </html>
