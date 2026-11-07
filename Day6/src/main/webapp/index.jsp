@@ -71,6 +71,12 @@
 
     <a href="/day6/views/objects">View Details</a>
 
+    <h2>4. EL(Expression Language)</h2>
+    <p>
+      표현식 태그를 대신하여 클라이언트에 출력하고자 하는 값들을 좀 더 간결하게 사용하는 방법이다.
+    </p>
+
+    <a href="/day6/views/el">View Details</a>
 
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
