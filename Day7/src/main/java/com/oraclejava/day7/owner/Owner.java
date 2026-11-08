@@ -1,11 +1,13 @@
 package com.oraclejava.day7.owner;
 
 import com.oraclejava.day7.pet.Pet;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+@Getter
 @ToString
 @Component
 @RequiredArgsConstructor

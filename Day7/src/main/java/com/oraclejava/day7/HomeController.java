@@ -17,10 +17,25 @@ public class HomeController {
     }
 
     @GetMapping("/di")
-    public String id() {
+    public String di() {
 
         System.out.println(owner);
 
         return "redirect:/";
     }
+
+    @GetMapping("/aop")
+    public String aop() {
+
+        owner.getPet().makeSound();
+
+        return "redirect:/";
+    }
 }
+
+
+
+
+
+
+
