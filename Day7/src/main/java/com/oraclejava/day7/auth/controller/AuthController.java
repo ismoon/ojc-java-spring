@@ -3,14 +3,17 @@ package com.oraclejava.day7.auth.controller;
 import com.oraclejava.day7.auth.dto.LoginRequestDto;
 import com.oraclejava.day7.auth.dto.UserResponseDto;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
-// @Controller
-@RestController
+@Controller
+// @RestController
 public class AuthController {
     // 요청 시 사용자의 파라미터를 전송받는 방법
     // 1. HttpServletRequest 객체를 통해서 전송받는 방법
@@ -135,12 +138,31 @@ public class AuthController {
 //    }
 
     // 2. @RestController 어노테이션을 사용하는 방법
+    //   - 해당 어노테이션이 붙은 클래스의 모든 메소드에서 데이터를 반환하는 경우 사용한다.
+    //   - @RestController 어노테이션을 선언하면 클래스의 모든 메소드는
+    //     @ResponseBody 어노테이션이 기본으로 적용된다.
+//    @GetMapping("/auth/users/{no}")
+//    public Object users(@PathVariable int no) {
+//
+//        return new UserResponseDto(no, "홍길동", "인천광역시");
+//    }
+
+    // 3. ResponseEntity 객체 사용
+    //  - HttpEntity 클래스를 상속하는 클래스로 HTTP 응답 데이터를 포함하는 클래스이다.
+    //  - 개발자가 직접 HTTP Body, Header, Status Code를 세팅해서 반환할 수 있다.
     @GetMapping("/auth/users/{no}")
-    public Object users(@PathVariable int no) {
+    public ResponseEntity<UserResponseDto> users(@PathVariable int no) {
+        UserResponseDto userResponseDto =
+                new UserResponseDto(no, "홍길동", "인천광역시");
 
-        return new UserResponseDto(no, "홍길동", "인천광역시");
+        // return ResponseEntity.ok(userResponseDto);
+        // return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        // return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .header(HttpHeaders.AUTHORIZATION, "Bearer z8wd8723uihxzchjk3289asdijohzxcvhjkl23897asdfuiho")
+                .body(userResponseDto);
     }
-
 }
 
 
