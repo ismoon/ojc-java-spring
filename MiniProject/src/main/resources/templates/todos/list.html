@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO 목록</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+
+      <!-- 제목 및 추가 버튼 -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold mb-0">TODO 목록</h2>
+        <a th:href="@{/todos/add}" class="btn btn-primary">
+          + 추가
+        </a>
+      </div>
+
+      <!-- TODO 목록 -->
+      <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle">
+          <thead class="table-light">
+          <tr>
+            <th>ID</th>
+            <th>제목</th>
+            <th>중요도</th>
+            <th>긴급도</th>
+            <th>기한</th>
+            <th>완료</th>
+            <th class="text-center">관리</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="todo : ${todos}">
+            <td th:text="${todo.id}"></td>
+            <td th:text="${todo.title}"></td>
+            <td th:text="${todo.importance == 1 ? '★★★' : '★'}"></td>
+            <td th:text="${todo.urgency == 1 ? '★★★' : '★'}"></td>
+            <td th:text="${todo.deadline}"></td>
+            <td>
+                            <span th:if="${todo.done == 'Y'}"
+                                  class="badge bg-success">완료</span>
+              <span th:unless="${todo.done == 'Y'}"
+                    class="badge bg-secondary">진행중</span>
+            </td>
+            <td class="text-center">
+              <div class="d-flex justify-content-center gap-2">
+                <a th:href="@{/todos/{id}/edit(id=${todo.id})}" class="btn btn-outline-primary btn-sm">
+                  수정
+                </a>
+                <form th:action="@{/todos/{id}/delete(id=${todo.id})}"
+                      method="post"
+                      onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                  <button type="submit" class="btn btn-outline-danger btn-sm">
+                    삭제
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script th:inline="javascript">
+  const message = /*[[${message}]]*/ null;
+
+  if (message) {
+    alert(message);
+  }
+</script>
+</body>
+</html>

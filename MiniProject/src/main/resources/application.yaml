@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: MiniProject
+  # DB\uC5D0 \uB300\uD55C \uC5F0\uACB0 \uC815\uBCF4
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/web
+    username: oraclejava
+    password: oraclejava
+# Mybatis \uC124\uC815
+mybatis:
+  type-aliases-package: com.oraclejava.mini.*.vo
+  mapper-locations:
+    - classpath:mappers/**/*.xml
+  configuration:
+    jdbc-type-for-null: NULL
