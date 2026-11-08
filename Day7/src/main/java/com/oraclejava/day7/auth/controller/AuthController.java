@@ -3,14 +3,14 @@ package com.oraclejava.day7.auth.controller;
 import com.oraclejava.day7.auth.dto.LoginRequestDto;
 import com.oraclejava.day7.auth.dto.UserResponseDto;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
-@Controller
+// @Controller
+@RestController
 public class AuthController {
     // 요청 시 사용자의 파라미터를 전송받는 방법
     // 1. HttpServletRequest 객체를 통해서 전송받는 방법
@@ -90,17 +90,57 @@ public class AuthController {
 
     // 뷰에 데이터를 전달하는 방법
     // 1. Model 객체 사용
+//    @GetMapping("/auth/users/{no}")
+//    public String users(Model model ,@PathVariable int no) {
+//        UserResponseDto responseDto =
+//                new UserResponseDto(no, "hong123", "인천광역시");
+//
+//        log.info("User No: {}", no);
+//
+//        model.addAttribute("user", responseDto);
+//
+//        return "auth/profile";
+//    }
+
+    // 2. ModelAndView 객체 사용
+//    @GetMapping("/auth/users/{no}")
+//    public ModelAndView users(
+//            ModelAndView modelAndView, @PathVariable int no) {
+//        UserResponseDto responseDto =
+//                new UserResponseDto(no, "hong123", "인천광역시");
+//
+//        log.info("User No: {}", no);
+//
+//        modelAndView.addObject("user", responseDto);
+//        modelAndView.setViewName("auth/profile");
+//
+//        return modelAndView;
+//    }
+
+    // 클라이언트로 데이터를 전달하는 방법
+    // 1. @ResponseBody 어노테이션을 사용하는 방법
+//    @ResponseBody
+//    @GetMapping("/auth/users/{no}")
+//    public Object users(@PathVariable int no) {
+//        Map<String, Object> map = new HashMap<>();
+//
+//        map.put("no", no);
+//        map.put("name", "홍길동");
+//        map.put("isAdmin", true);
+//        map.put("user",
+//                new UserResponseDto(no, "홍길동", "인천광역시"));
+//        map.put("numbers", new int[] {4, 5, 6, 7});
+//
+//        return map;
+//    }
+
+    // 2. @RestController 어노테이션을 사용하는 방법
     @GetMapping("/auth/users/{no}")
-    public String users(Model model ,@PathVariable int no) {
-        UserResponseDto responseDto =
-                new UserResponseDto(no, "hong123", "인천광역시");
+    public Object users(@PathVariable int no) {
 
-        log.info("User No: {}", no);
-
-        model.addAttribute("user", responseDto);
-
-        return "auth/profile";
+        return new UserResponseDto(no, "홍길동", "인천광역시");
     }
+
 }
 
 
