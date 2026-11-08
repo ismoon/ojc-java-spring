@@ -13,9 +13,9 @@ public class Dog extends Pet {
 
     @Override
     public void makeSound() {
-//        if (true) {
-//            throw new RuntimeException("에러 발생");
-//        }
+        // if (true) {
+        //     throw new RuntimeException("makeSound() 에러 발생");
+        // }
 
         System.out.println("멍멍~");
     }

@@ -1,8 +1,8 @@
 package com.oraclejava.day7.aspect;
 
-import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +23,7 @@ public class PetAspect {
     }
 
     // @Before("execution(* com.oraclejava.day7.pet.Pet.makeSound(..))")
-    @Before("makeSoundPointcut()")
+    // @Before("makeSoundPointcut()")
     public void before() {
         // makeSound() 실행 전에 필요한 작업들을 작성한다.
         System.out.println("makeSound 준비 중..");
@@ -35,12 +35,34 @@ public class PetAspect {
         System.out.println("makeSound 수행 완료..");
     }
 
-    @AfterReturning("makeSoundPointcut()")
+    // @AfterReturning("makeSoundPointcut()")
     public void success() {
         // makeSound()가 정상적으로 완료된 후 필요한 작업들을 작성한다.
         System.out.println("makeSound 수행 완료..");
     }
 
+    // @AfterThrowing(value = "makeSoundPointcut()", throwing = "exception")
+    public void fail(Exception exception) {
+        // makeSound()에서 에러가 발생했을 때 필요한 작업들을 작성한다.
+        System.out.println(exception.getMessage());
+        System.out.println("makeSound 수행 중 에러 발생..");
+    }
 
+    @Around("makeSoundPointcut()")
+    public void around(ProceedingJoinPoint jp) {
+        try {
+            // before 어드바이스에 대한 기능을 수행
+            System.out.println("makeSound 준비 중..");
 
+            // 타켓 객체의 메소드 호출
+            jp.proceed();
+
+            // after-returning 어드바이스에 대한 기능을 수행
+            System.out.println("makeSound 수행 완료..");
+        } catch (Throwable e) {
+            // after-throwing 어드바이스에 대한 기능을 수행
+            System.out.println(e.getMessage());
+            System.out.println("makeSound 수행 중 에러 발생..");
+        }
+    }
 }
