@@ -50,8 +50,9 @@ CREATE TABLE todo (
     `importance` INT,
     `urgency` INT,
     `deadline` DATE DEFAULT CURDATE(),
-    `done` CHAR(1) DEFAULT 'N' CHECK(STATUS IN('Y', 'N'))
+    `done` CHAR(1) DEFAULT 'N' CHECK(done IN('Y', 'N'))
 );
+
 
 insert into todo values (DEFAULT, '고양이 목욕시키기', 0, 0, '2025-01-01', 'N');
 insert into todo values (DEFAULT, '스프링수업', 0, 1, '2024-11-30', 'N');
