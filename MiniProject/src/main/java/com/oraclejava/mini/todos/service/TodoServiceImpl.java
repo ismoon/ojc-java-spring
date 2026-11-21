@@ -39,4 +39,10 @@ public class TodoServiceImpl implements TodoService {
 
         return todoMapper.deleteTodo(id);
     }
+
+    @Override
+    public Todo findById(int id) {
+
+        return todoMapper.selectById(id);
+    }
 }

@@ -13,4 +13,6 @@ public interface TodoMapper {
     int insertTodo(Todo todo);
 
     int deleteTodo(@Param("id") int id);
+
+    Todo selectById(@Param("id") int id);
 }

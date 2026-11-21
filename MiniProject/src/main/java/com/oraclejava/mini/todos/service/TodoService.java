@@ -10,4 +10,6 @@ public interface TodoService {
     int save(Todo todo);
 
     int delete(int id);
+
+    Todo findById(int id);
 }
