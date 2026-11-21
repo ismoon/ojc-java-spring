@@ -1,0 +1,9 @@
+package com.oraclejava.mini.todos.service;
+
+import com.oraclejava.mini.todos.vo.Todo;
+
+import java.util.List;
+
+public interface TodoService {
+    List<Todo> findAll();
+}
