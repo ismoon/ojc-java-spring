@@ -6,6 +6,7 @@ import com.oraclejava.mini.todos.vo.Todo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -57,4 +58,23 @@ public class TodoController {
         return "redirect:/todos";
     }
 
+    @PostMapping("/{id}/delete")
+    public String delete(@PathVariable("id") int id,
+                         RedirectAttributes redirectAttributes) {
+        int result = todoService.delete(id);
+
+        if (result == 1) {
+            redirectAttributes.addFlashAttribute(
+                    "message",
+                    "TODO가 삭제되었습니다."
+            );
+        } else {
+            redirectAttributes.addFlashAttribute(
+                    "message",
+                    "TODO가 삭제되지 않았습니다."
+            );
+        }
+
+        return "redirect:/todos";
+    }
 }

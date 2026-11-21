@@ -43,4 +43,10 @@
              #{deadline}
          )
     </insert>
+
+    <delete id="deleteTodo" parameterType="_int">
+        DELETE
+        FROM todo
+        WHERE id = #{id}
+    </delete>
 </mapper>

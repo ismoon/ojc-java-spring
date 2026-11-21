@@ -32,4 +32,11 @@ public class TodoServiceImpl implements TodoService {
 
         return result;
     }
+
+    @Override
+    @Transactional
+    public int delete(int id) {
+
+        return todoMapper.deleteTodo(id);
+    }
 }
