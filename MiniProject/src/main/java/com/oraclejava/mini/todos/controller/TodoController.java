@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -35,8 +36,23 @@ public class TodoController {
     }
 
     @PostMapping("/add")
-    public String add(TodoAddRequestDto todoAddRequestDto) {
-        System.out.println(todoAddRequestDto);
+    public String add(TodoAddRequestDto todoAddRequestDto,
+                      RedirectAttributes redirectAttributes) {
+        Todo todo = todoAddRequestDto.toEntity();
+
+        int result = todoService.save(todo);
+
+        if (result == 1) {
+            redirectAttributes.addFlashAttribute(
+                    "message",
+                    "TODO가 등록되었습니다."
+            );
+        } else {
+            redirectAttributes.addFlashAttribute(
+                    "message",
+                    "TODO가 등록되지 않았습니다."
+            );
+        }
 
         return "redirect:/todos";
     }

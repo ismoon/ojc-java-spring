@@ -17,4 +17,13 @@ public class TodoServiceImpl implements TodoService {
 
         return todoMapper.selectAll();
     }
+
+    @Override
+    public int save(Todo todo) {
+        int result = 0;
+
+        result = todoMapper.insertTodo(todo);
+
+        return result;
+    }
 }
