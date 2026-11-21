@@ -59,7 +59,7 @@ public class TodoController {
     }
 
     @PostMapping("/{id}/delete")
-    public String delete(@PathVariable("id") int id,
+    public String delete(@PathVariable int id,
                          RedirectAttributes redirectAttributes) {
         int result = todoService.delete(id);
 
@@ -76,5 +76,15 @@ public class TodoController {
         }
 
         return "redirect:/todos";
+    }
+
+    @GetMapping("/{id}/edit")
+    public ModelAndView edit(ModelAndView modelAndView,
+                             @PathVariable int id) {
+
+        modelAndView.addObject("todoId", id);
+        modelAndView.setViewName("todos/edit");
+
+        return modelAndView;
     }
 }

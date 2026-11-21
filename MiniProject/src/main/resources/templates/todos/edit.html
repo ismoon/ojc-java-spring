@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TODO 수정</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="mb-4">TODO 수정</h2>
+
+      <form id="editForm">
+        <div class="mb-3">
+          <label for="title" class="form-label">제목</label>
+          <input type="text" id="title"
+                 class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="importance" class="form-label">중요도</label>
+          <select id="importance" class="form-select">
+            <option value="1">높음</option>
+            <option value="0">낮음</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="urgency" class="form-label">긴급도</label>
+          <select id="urgency" class="form-select">
+            <option value="1">높음</option>
+            <option value="0">낮음</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="deadline" class="form-label">기한</label>
+          <input type="date" id="deadline"
+                 class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label for="done" class="form-label">완료 여부</label>
+          <select id="done" class="form-select">
+            <option value="N">진행중</option>
+            <option value="Y">완료</option>
+          </select>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2">
+          <a th:href="@{/todos}" class="btn btn-secondary">취소</a>
+          <button type="submit" class="btn btn-primary">수정</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script th:inline="javascript">
+  const todoId = /*[[${todoId}]]*/ 0;
+
+  $(function () {
+    // 수정 데이터 조회
+    $.ajax({
+      url: `/api/todos/${todoId}`,
+      type: "GET",
+      success: function (todo) {
+        $("#title").val(todo.title);
+        $("#importance").val(todo.importance);
+        $("#urgency").val(todo.urgency);
+        $("#deadline").val(todo.deadline);
+        $("#done").val(todo.done);
+      },
+      error: function () {
+        alert("데이터 조회에 실패했습니다.");
+
+        location.replace("/todos");
+      }
+    });
+
+    // 수정 요청
+    $("#editForm").on("submit", function (event) {
+      event.preventDefault();
+
+      const todo = {
+        title: $("#title").val(),
+        importance: Number($("#importance").val()),
+        urgency: Number($("#urgency").val()),
+        deadline: $("#deadline").val(),
+        done: $("#done").val()
+      };
+
+      $.ajax({
+        url: `/api/todos/${todoId}`,
+        type: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify(todo),
+        success: function () {
+          alert("수정되었습니다.");
+          location.href = "/todos";
+        },
+        error: function () {
+          alert("수정에 실패했습니다.");
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
