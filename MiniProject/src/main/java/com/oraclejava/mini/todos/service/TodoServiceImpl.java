@@ -4,6 +4,7 @@ import com.oraclejava.mini.todos.mapper.TodoMapper;
 import com.oraclejava.mini.todos.vo.Todo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,10 +20,15 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
+    @Transactional
     public int save(Todo todo) {
         int result = 0;
 
         result = todoMapper.insertTodo(todo);
+
+        // if (true) {
+        //     throw new RuntimeException("저장 중 에러 발생");
+        // }
 
         return result;
     }
