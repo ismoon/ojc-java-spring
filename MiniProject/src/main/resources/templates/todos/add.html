@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>TODO 수정</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="fw-bold mb-4">TODO 추가</h2>
+      <form th:action="@{/todos/add}" method="post">
+        <div class="mb-3">
+          <label for="create-title" class="form-label">제목</label>
+          <input type="text" id="create-title" name="title" class="form-control" placeholder="할 일을 입력하세요" required>
+        </div>
+        <div class="mb-3">
+          <label for="create-importance" class="form-label">중요도</label>
+          <select id="create-importance" name="importance" class="form-select" required>
+            <option value="1">높음</option>
+            <option value="0">낮음</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="create-urgency" class="form-label">긴급도</label>
+          <select id="create-urgency" name="urgency" class="form-select" required>
+            <option value="1">높음</option>
+            <option value="0">낮음</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="create-deadline" class="form-label">기한</label>
+          <input type="date" id="create-deadline" name="deadline" class="form-control" required>
+        </div>
+        <div class="d-flex justify-content-end gap-2">
+          <a th:href="@{/todos}" class="btn btn-secondary">취소</a>
+          <button type="submit" class="btn btn-primary">추가</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

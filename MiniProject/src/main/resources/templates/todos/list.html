@@ -42,8 +42,8 @@
             <td th:text="${todo.urgency == 1 ? '★★★' : '★'}"></td>
             <td th:text="${todo.deadline}"></td>
             <td>
-                            <span th:if="${todo.done == 'Y'}"
-                                  class="badge bg-success">완료</span>
+              <span th:if="${todo.done == 'Y'}"
+                    class="badge bg-success">완료</span>
               <span th:unless="${todo.done == 'Y'}"
                     class="badge bg-secondary">진행중</span>
             </td>
