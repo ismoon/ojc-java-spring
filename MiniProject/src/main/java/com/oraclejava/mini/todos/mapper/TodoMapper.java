@@ -16,4 +16,6 @@ public interface TodoMapper {
     int deleteTodo(@Param("id") int id);
 
     Optional<Todo> selectById(@Param("id") int id);
+
+    int updateTodo(Todo todo);
 }

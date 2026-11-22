@@ -60,4 +60,15 @@
         FROM todo
         WHERE id = #{id}
     </select>
+
+    <update id="updateTodo" parameterType="Todo">
+        UPDATE todo
+        SET
+            title = #{title},
+            importance = #{importance},
+            urgency = #{urgency},
+            deadline = #{deadline},
+            done = #{done}
+        WHERE id = #{id}
+    </update>
 </mapper>

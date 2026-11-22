@@ -92,6 +92,8 @@
         done: $("#done").val()
       };
 
+      console.log(todo);
+
       $.ajax({
         url: `/api/todos/${todoId}`,
         type: "PUT",

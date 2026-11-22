@@ -25,7 +25,11 @@ public class TodoServiceImpl implements TodoService {
     public int save(Todo todo) {
         int result = 0;
 
-        result = todoMapper.insertTodo(todo);
+        if (todo.getId() == 0) {
+            result = todoMapper.insertTodo(todo);
+        } else {
+            result = todoMapper.updateTodo(todo);
+        }
 
         // if (true) {
         //     throw new RuntimeException("저장 중 에러 발생");
