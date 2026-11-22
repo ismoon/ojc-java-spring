@@ -1,5 +1,7 @@
 package com.oraclejava.mini.auth.controller;
 
+import com.oraclejava.mini.auth.vo.User;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,6 +16,14 @@ public class AuthController {
         modelAndView.setViewName("auth/login");
 
         return modelAndView;
+    }
+
+    @GetMapping("/admin/info")
+    public String adminInfo(@AuthenticationPrincipal User loginUser) {
+
+        System.out.println(loginUser);
+
+        return "admin/info";
     }
 
     @GetMapping("/access-denied")

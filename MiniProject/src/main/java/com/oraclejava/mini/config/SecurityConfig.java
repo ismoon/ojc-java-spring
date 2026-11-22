@@ -68,6 +68,7 @@ public class SecurityConfig {
                                 // 정적 리소스 허용
                                 .requestMatchers("/js/**", "/css/**", "/images/**").permitAll()
                                 .requestMatchers("/login").permitAll()
+                                .requestMatchers("/admin/**").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.POST, "/todos/*/delete").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 );
