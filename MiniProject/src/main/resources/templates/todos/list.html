@@ -12,12 +12,21 @@
   <div class="row justify-content-center">
     <div class="col-lg-10">
 
-      <!-- 제목 및 추가 버튼 -->
+      <!-- 제목 및 추가/로그아웃 버튼 -->
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold mb-0">TODO 목록</h2>
-        <a th:href="@{/todos/add}" class="btn btn-primary">
-          + 추가
-        </a>
+
+        <div class="d-flex gap-2">
+          <a th:href="@{/todos/add}" class="btn btn-primary">
+            + 추가
+          </a>
+
+          <form th:action="@{/logout}" method="post" class="m-0">
+            <button type="submit" class="btn btn-outline-secondary">
+              로그아웃
+            </button>
+          </form>
+        </div>
       </div>
 
       <!-- TODO 목록 -->

@@ -27,10 +27,30 @@ public class SecurityConfig {
                 // HTTP 인증 활성화
                 .httpBasic(Customizer.withDefaults())
                 // 폼 로그인 활성화
-                .formLogin(Customizer.withDefaults())
+                .formLogin(formLogin ->
+                        formLogin.loginPage("/login")
+                )
+                // 로그아웃 설정
+                .logout(logout ->
+                        logout
+                                .logoutUrl("/logout")
+                                .logoutSuccessUrl("/login?logout")
+                                .invalidateHttpSession(true)
+                                .deleteCookies("JSESSIONID")
+                )
+                // 기억하기 기능
+                .rememberMe(rememberMe ->
+                        rememberMe
+                                .key("oraclejava") // 토큰 생성 시 서명에 사용되는 키 설정
+                                .tokenValiditySeconds(1209600) // 쿠키의 유효시간을 지정(초)
+                )
                 // 접근 제어 설정
                 .authorizeHttpRequests(requests ->
-                        requests.anyRequest().authenticated()
+                        requests
+                                // 정적 리소스 허용
+                                .requestMatchers("/js/**", "/css/**", "/images/**").permitAll()
+                                .requestMatchers("/login").permitAll()
+                                .anyRequest().authenticated()
                 );
 
         return http.build();
