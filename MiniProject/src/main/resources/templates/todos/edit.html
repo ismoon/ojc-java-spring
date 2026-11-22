@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- CSRF 토큰 -->
+  <meta name="_csrf" th:content="${_csrf.token}">
+  <meta name="_csrf_header" th:content="${_csrf.headerName}">
+
   <meta charset="UTF-8">
   <title>TODO 수정</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -62,6 +66,10 @@
   const todoId = /*[[${todoId}]]*/ 0;
 
   $(function () {
+    // CSRF 토큰
+    const csrfToken = $("meta[name='_csrf']").attr("content");
+    const csrfHeader = $("meta[name='_csrf_header']").attr("content");
+
     // 수정 데이터 조회
     $.ajax({
       url: `/api/todos/${todoId}`,
@@ -98,6 +106,9 @@
         url: `/api/todos/${todoId}`,
         type: "PUT",
         contentType: "application/json",
+        headers: {
+          [csrfHeader]: csrfToken
+        },
         data: JSON.stringify(todo),
         success: function () {
           alert("수정되었습니다.");
