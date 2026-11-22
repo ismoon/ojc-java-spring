@@ -1,5 +1,6 @@
 package com.oraclejava.mini.config;
 
+import com.oraclejava.mini.auth.handler.AuthenticationFailureHandlerImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -8,13 +9,15 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
     // 1. SecurityFilterChain 설정
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) {
+    public SecurityFilterChain filterChain(HttpSecurity http,
+                   AuthenticationFailureHandler authenticationFailureHandler) {
         // CSRF(Cross-Site Request Forgery)
         //   - 공격자가 사용자의 브라우저를 악용하여 인증된 세션을 가진 사용자의 권한으로 악의적인 요청을 보내는 공격이다.
         //   - 스프링 시큐리티는 기본적으로 CSRF 보호 기능을 활성화하며 GET 요청을 제외한 요청에 대해 CSRF 토큰을 검증한다.
@@ -25,7 +28,9 @@ public class SecurityConfig {
                 .httpBasic(Customizer.withDefaults())
                 // 폼 로그인 활성화
                 .formLogin(formLogin ->
-                        formLogin.loginPage("/login")
+                        formLogin
+                                .loginPage("/login")
+                                .failureHandler(authenticationFailureHandler)
                 )
                 // 로그아웃 설정
                 .logout(logout ->
@@ -92,5 +97,12 @@ public class SecurityConfig {
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    // AuthenticationFailureHandler 생성
+    @Bean
+    public AuthenticationFailureHandler authenticationFailureHandler() {
+
+        return new AuthenticationFailureHandlerImpl();
     }
 }
