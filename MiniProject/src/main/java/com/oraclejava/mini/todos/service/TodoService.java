@@ -3,6 +3,7 @@ package com.oraclejava.mini.todos.service;
 import com.oraclejava.mini.todos.vo.Todo;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface TodoService {
     List<Todo> findAll();
@@ -11,5 +12,5 @@ public interface TodoService {
 
     int delete(int id);
 
-    Todo findById(int id);
+    Optional<Todo> findById(int id);
 }

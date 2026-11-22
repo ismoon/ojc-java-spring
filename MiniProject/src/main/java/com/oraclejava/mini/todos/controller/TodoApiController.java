@@ -17,7 +17,8 @@ public class TodoApiController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Todo> todo(@PathVariable int id) {
-        Todo todo = todoService.findById(id);
+        Todo todo = todoService.findById(id)
+                .orElseThrow(() -> new RuntimeException("Todo Not found"));
 
         return ResponseEntity.ok(todo);
     }

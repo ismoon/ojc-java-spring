@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface TodoMapper {
@@ -14,5 +15,5 @@ public interface TodoMapper {
 
     int deleteTodo(@Param("id") int id);
 
-    Todo selectById(@Param("id") int id);
+    Optional<Todo> selectById(@Param("id") int id);
 }

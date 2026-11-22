@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -41,7 +42,7 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public Todo findById(int id) {
+    public Optional<Todo> findById(int id) {
 
         return todoMapper.selectById(id);
     }
